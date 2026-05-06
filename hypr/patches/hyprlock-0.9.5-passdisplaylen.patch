@@ -1,0 +1,16 @@
+diff --git a/src/renderer/widgets/IWidget.cpp b/src/renderer/widgets/IWidget.cpp
+index 45a9c08..e38d07d 100644
+--- a/src/renderer/widgets/IWidget.cpp
++++ b/src/renderer/widgets/IWidget.cpp
+@@ -250,6 +250,11 @@ IWidget::SFormatResult IWidget::formatString(std::string in) {
+         result.allowForceUpdate = true;
+     }
+ 
++    if (in.contains("$PASSDISPLAYLEN")) {
++        replaceInString(in, "$PASSDISPLAYLEN", std::to_string(g_pHyprlock->getPasswordBufferDisplayLen()));
++        result.allowForceUpdate = true;
++    }
++
+     if (in.starts_with("cmd[") && in.contains("]")) {
+         // this is a command
+         CVarList vars(in.substr(4, in.find_first_of(']') - 4), 0, ',', true);
