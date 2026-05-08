@@ -1,0 +1,13 @@
+{
+
+
+  // CAVA Audio Visualizer
+  "custom/cava": {
+    "exec": "~/.config/waybar/scripts/cava.sh",
+    "return-type": "json",
+    "escape": false,
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl next",
+    "on-click-right": "playerctl previous"
+  }
+}

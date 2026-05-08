@@ -1,0 +1,29 @@
+diff --git a/src/core/hyprlock.cpp b/src/core/hyprlock.cpp
+index 3b25667..01f87f0 100644
+--- a/src/core/hyprlock.cpp
++++ b/src/core/hyprlock.cpp
+@@ -683,6 +683,8 @@ void CHyprlock::handleKeySym(xkb_keysym_t sym, bool composed) {
+         if (len > 1)
+             m_sPasswordState.passBuffer += std::string{buf, len - 1};
+     }
++
++    enqueueForceUpdateTimers();
+ }
+ 
+ void CHyprlock::onClick(uint32_t button, bool down, const Vector2D& pos) {
+diff --git a/src/renderer/widgets/IWidget.cpp b/src/renderer/widgets/IWidget.cpp
+index 45a9c08..e38d07d 100644
+--- a/src/renderer/widgets/IWidget.cpp
++++ b/src/renderer/widgets/IWidget.cpp
+@@ -250,6 +250,11 @@ IWidget::SFormatResult IWidget::formatString(std::string in) {
+         result.allowForceUpdate = true;
+     }
+ 
++    if (in.contains("$PASSDISPLAYLEN")) {
++        replaceInString(in, "$PASSDISPLAYLEN", std::to_string(g_pHyprlock->getPasswordBufferDisplayLen()));
++        result.allowForceUpdate = true;
++    }
++
+     if (in.starts_with("cmd[") && in.contains("]")) {
+         // this is a command
+         CVarList vars(in.substr(4, in.find_first_of(']') - 4), 0, ',', true);

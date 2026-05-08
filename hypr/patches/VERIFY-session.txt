@@ -1,0 +1,13 @@
+verify-binary (automated)
+  command -v hyprlock -> /usr/bin/hyprlock
+  pacman-owned binary, v0.9.5, root:root — stock package (no local PASSDISPLAYLEN).
+
+build-install (this environment)
+  cmake not installed; sudo pacman unavailable non-interactively.
+  Delivered: combined patch, build-patched-hyprlock.sh, README-passdisplaylen.txt.
+  User runs: sudo pacman -S cmake ninja base-devel && ~/.config/hypr/patches/build-patched-hyprlock.sh && sudo cmake --install ...
+
+retest-lock (automated subset)
+  ares-hyprlock-scan.sh 0 -> idle line
+  ares-hyprlock-scan.sh 2 -> awaiting passphrase
+  Full Wayland lock UI requires patched hyprlock binary on user machine.
