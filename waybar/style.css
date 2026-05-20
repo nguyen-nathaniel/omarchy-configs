@@ -37,32 +37,43 @@ window#waybar {
   opacity: 0.5;
 }
 
-#cpu,
 #battery,
-#pulseaudio,
 #custom-omarchy,
 #custom-update {
   min-width: 12px;
   margin: 0 7.5px;
 }
 
+#cpu {
+  margin-right: 13px;
+  margin-left: 13px;
+}
+
+#pulseaudio {
+  margin-right: 13px;
+  margin-left: 13px;
+}
 #tray {
-  margin-right: 16px;
+  margin-right: 13px;
+  margin-left: 13px;
 }
 
 #bluetooth {
-  margin-right: 17px;
+  margin-right: 13px;
+  margin-left: 13px;
 }
 
 #network {
   margin-right: 13px;
+  margin-left: 13px;
 }
 
 #custom-expand-icon {
-  margin-right: 18px;
+  margin-right: 13px;
+  margin-left: 13px;
 }
 
-tooltip {
+#tooltip {
   padding: 2px;
 }
 
@@ -116,4 +127,15 @@ tooltip {
 
 #custom-voxtype.recording {
   color: #a55555;
+}
+
+#custom-weather {
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+}
+
+#custom-weather.unavailable {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
 }

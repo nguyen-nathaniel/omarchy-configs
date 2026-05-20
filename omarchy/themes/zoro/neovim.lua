@@ -1,9 +1,18 @@
 return {
-	{ "rebelot/kanagawa.nvim" },
+	-- add tokyonight
+	{
+		"folke/tokyonight.nvim",
+		lazy = true,
+		opts = {
+			style = "moon",
+		},
+	},
+
+	-- Configure LazyVim to load gruvbox
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "kanagawa",
+			colorscheme = "tokyonight-moon",
 		},
 	},
 }
